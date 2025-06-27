@@ -1,0 +1,301 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 150 100% 99%;
+    --foreground: 150 10% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 150 10% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 150 10% 10%;
+
+    --primary: 150 100% 50%;
+    --primary-foreground: 150 10% 10%;
+
+    --secondary: 150 16% 96%;
+    --secondary-foreground: 150 10% 10%;
+
+    --muted: 150 16% 96%;
+    --muted-foreground: 150 10% 40%;
+
+    --accent: 150 16% 96%;
+    --accent-foreground: 150 10% 10%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 150 16% 90%;
+    --input: 150 16% 90%;
+    --ring: 150 100% 50%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 150 10% 26%;
+    --sidebar-primary: 150 100% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 150 16% 96%;
+    --sidebar-accent-foreground: 150 10% 10%;
+    --sidebar-border: 150 16% 90%;
+    --sidebar-ring: 150 100% 50%;
+  }
+
+  .dark {
+    --background: 150 10% 5%;
+    --foreground: 150 10% 98%;
+
+    --card: 150 10% 7%;
+    --card-foreground: 150 10% 98%;
+
+    --popover: 150 10% 5%;
+    --popover-foreground: 150 10% 98%;
+
+    --primary: 150 100% 50%;
+    --primary-foreground: 150 10% 5%;
+
+    --secondary: 150 10% 15%;
+    --secondary-foreground: 150 10% 98%;
+
+    --muted: 150 10% 15%;
+    --muted-foreground: 150 10% 70%;
+
+    --accent: 150 10% 15%;
+    --accent-foreground: 150 10% 98%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 150 10% 98%;
+
+    --border: 150 10% 15%;
+    --input: 150 10% 15%;
+    --ring: 150 100% 50%;
+
+    --sidebar-background: 150 10% 7%;
+    --sidebar-foreground: 150 10% 90%;
+    --sidebar-primary: 150 100% 50%;
+    --sidebar-primary-foreground: 150 10% 5%;
+    --sidebar-accent: 150 10% 15%;
+    --sidebar-accent-foreground: 150 10% 90%;
+    --sidebar-border: 150 10% 15%;
+    --sidebar-ring: 150 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .glass-card {
+    @apply backdrop-blur-md bg-white/10 border border-white/20;
+  }
+
+  .hover-scale {
+    @apply transition-transform duration-300 ease-out hover:scale-[1.02];
+  }
+
+  .shimmer {
+    @apply animate-shimmer bg-gradient-to-r from-transparent via-white/20 to-transparent bg-[length:500px_100%];
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-sanav-gradient;
+  }
+  
+  .animate-gradient-slow {
+    animation: gradient 8s ease infinite alternate;
+    background-size: 300% 300%;
+  }
+  
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+  
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+  
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+  
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
+  
+  .animation-delay-700 {
+    animation-delay: 700ms;
+  }
+  
+  .animation-delay-800 {
+    animation-delay: 800ms;
+  }
+
+  /* Button animations */
+  .btn-shine {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .btn-shine::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: 0.5s;
+  }
+  
+  .btn-shine:hover::after {
+    left: 100%;
+  }
+  
+  .btn-3d {
+    transform-style: preserve-3d;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .btn-3d:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 255, 127, 0.2);
+  }
+  
+  .btn-3d:active {
+    transform: translateY(0);
+    box-shadow: 0 5px 10px rgba(0, 255, 127, 0.2);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 127, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 127, 0.5);
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.btn-glow {
+  box-shadow: 0 0 15px 2px rgba(0, 255, 127, 0.5);
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px 2px rgba(0, 255, 127, 0.5);
+  }
+  to {
+    box-shadow: 0 0 20px 5px rgba(0, 255, 127, 0.7);
+  }
+}
+
+/* Added from wemakedevs inspiration */
+.card-hover-effect {
+  transition: all 0.3s ease;
+}
+
+.card-hover-effect:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 255, 127, 0.15);
+}
+
+.text-outline {
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.highlight-text {
+  position: relative;
+  display: inline-block;
+}
+
+.highlight-text::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 30%;
+  width: 100%;
+  background-color: rgba(0, 255, 127, 0.2);
+  z-index: -1;
+  transition: height 0.3s ease;
+}
+
+.highlight-text:hover::before {
+  height: 100%;
+}
+
+.diagonal-box {
+  position: relative;
+  padding: 3rem;
+}
+
+.diagonal-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: skewY(-3deg);
+  background: linear-gradient(90deg, rgba(0,255,127,0.1), rgba(0,255,127,0.05));
+  z-index: -1;
+}
+
+/* Animation for number counting */
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.count-animation {
+  animation: countUp 1s ease-out forwards;
+}
